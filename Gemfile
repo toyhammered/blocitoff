@@ -23,13 +23,14 @@ group :development, :test do
   gem 'rspec-rails', '~>3.0'
   gem 'shoulda'
   gem 'factory_girl_rails', '~> 4.0'
+  gem 'faker'
 end
 
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'figaro'
-gem 'faker'
+
 
 
 gem 'uglifier', '>= 1.3.0'

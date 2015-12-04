@@ -1,0 +1,6 @@
+<tr>
+  <%= form_for @item do |f| %>
+    <td><%= f.text_field :name, class: 'form-control', placeholder: "New Item" %></td>
+    <td><%= f.submit "Save", class: "btn btn-success" %></td>
+  <% end %>
+</tr>

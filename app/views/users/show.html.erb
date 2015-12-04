@@ -1,2 +1,20 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h2>My Todos</h2>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+          <th>Description</th>
+          <th>Days Left</th>
+          <th>Complete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.items.each do |item| %>
+        <%= render partial: 'items/item', locals: { item: item } %>
+      <% end %>
+      <%= render partial: 'items/form' %>
+    </tbody>
+
+  </table>
+
+</div>
