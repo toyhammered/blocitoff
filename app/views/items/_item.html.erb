@@ -1,5 +1,5 @@
 <tr>
   <td><%= item.name %></td>
   <td> Time left </td>
-  <td> Checkbox here </td>
+  <td><%= link_to "", user_item_path(user.id, item.id), method: :delete, class: 'fa fa-check-square-o' %></td>
 </tr>
