@@ -2,7 +2,8 @@
   user = User.create!(
     email: "daniel@rassiner.com",
     password: "fakefake",
-    password_confirmation: "fakefake"
+    password_confirmation: "fakefake",
+    confirmed_at: Time.now
   )
 
 end
@@ -11,8 +12,8 @@ end
   user = User.create!(
     email: Faker::Internet.safe_email,
     password: "fakefake",
-    password_confirmation: "fakefake"
-
+    password_confirmation: "fakefake",
+    confirmed_at: Time.now
   )
 
 end
