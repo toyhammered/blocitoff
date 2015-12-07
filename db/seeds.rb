@@ -24,6 +24,7 @@ users = User.all
     name: Faker::Lorem.sentence(3),
     user: users.sample
   )
+  item.update_attributes(created_at: Faker::Time.backward(7, :all))
 end
 
 puts "Seeding Finished."
