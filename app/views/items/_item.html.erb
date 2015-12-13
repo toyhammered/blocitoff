@@ -1,5 +1,5 @@
-<tr>
+<tr class="change-icon">
   <td><%= item.name %></td>
-  <td> <%= time_remaining(item) %> </td>
-  <td><%= link_to "", user_item_path(user.id, item.id), method: :delete, class: 'fa fa-check-square-o' %></td>
+  <td class="text-center"> <%= time_remaining(item) %> </td>
+  <td class="text-center"><%= link_to "", user_item_path(user.id, item.id), method: :delete, class: 'fa fa-2x fa-square-o' %></td>
 </tr>

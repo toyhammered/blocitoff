@@ -2,7 +2,7 @@
   thead {
 
     tr {
-      border-bottom: 10px solid $pastal-red;
+      border-bottom: 10px solid $dark-blue;
       background: $teal;
       th {
         font-size: 1.25em;
@@ -10,8 +10,33 @@
     }
   }
 
-
   tbody tr{
     border-bottom: 4px solid $teal;
+    td {
+      vertical-align: middle;
+    }
   }
+}
+
+.item-form {
+
+  input.form-control {
+    display: inline;
+    width: 82%;
+    margin-left:0.5%;
+
+  }
+
+}
+.fa-square-o {
+  color: $teal;
+}
+.change-icon:hover .fa-square-o:before {
+    content: "\f046";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    color: black;
+
 }

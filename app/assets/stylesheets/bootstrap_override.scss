@@ -3,9 +3,10 @@ $pastal-red: #D47677;
 $pastal-blue: #87A4C5;
 $dark-blue: #0C5A7B;
 $teal: #9DD8D4;
+$success-green: #BFE28C;
 
 // Variables Override
-$body-bg: $pastal-red;
+$body-bg: $dark-blue;
 $font-family-sans-serif: 'Roboto Slab', serif;
 $headings-font-weight: 300;
 $btn-primary-bg: $teal;
@@ -23,7 +24,8 @@ $input-border: #fff;
 $input-border-focus: $teal;
 
 // Flash Messages
-$state-success-bg: $teal;
+$state-success-bg: $success-green;
+$state-danger-bg: #FF7E6B;
 
 // Tables
 $table-border-color: $teal;

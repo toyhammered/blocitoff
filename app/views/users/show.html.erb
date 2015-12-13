@@ -1,23 +1,25 @@
 <h2 class="text-center">My Todos</h2>
 <div class="container">
   <div class="row">
+
     <table class="table table-striped table-hover">
-      <thead>
+      <thead style="border-radius: 4px;">
         <tr>
-            <th>Description</th>
-            <th>Days Left</th>
-            <th>Complete</th>
+          <th>Description</th>
+          <th class="text-center">Days Left</th>
+          <th class="text-center">Complete</th>
         </tr>
       </thead>
+
       <tbody>
         <% @user.items.each do |item| %>
-          <%= render partial: 'items/item', locals: { item: item, user: @user } %>
+        <%= render partial: 'items/item', locals: { item: item, user: @user } %>
         <% end %>
       </tbody>
 
     </table>
     <%= render partial: 'items/form' %>
-  </div>
 
+  </div>
 
 </div>
