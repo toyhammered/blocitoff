@@ -1,0 +1,58 @@
+// Potential Colors
+$pastal-red: #D47677;
+$pastal-blue: #87A4C5;
+$dark-blue: #0C5A7B;
+$teal: #9DD8D4;
+
+// Variables Override
+$body-bg: $pastal-red;
+$font-family-sans-serif: 'Roboto Slab', serif;
+$headings-font-weight: 300;
+$btn-primary-bg: $teal;
+
+// Panels
+$panel-bg: #eee;
+$panel-footer-bg: #eee;
+$panel-inner-border: none;
+$panel-default-border: none;
+$panel-body-padding: 10px;
+$panel-footer-padding: 10px;
+
+// Form Input
+$input-border: #fff;
+$input-border-focus: $teal;
+
+// Flash Messages
+$state-success-bg: $teal;
+
+// Tables
+$table-border-color: $teal;
+$table-bg-hover: $teal;
+$table-bg: #eee;
+$table-bg-accent: #fff;
+$table-cell-padding: 10px;
+
+
+
+// Styles Override
+
+.btn {
+    border: 0 none;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.panel-body, .panel-footer {
+  border-radius: 4px;
+}
+
+.panel-footer {
+  margin-bottom: 20px;
+  border-top: 0;
+}
+
+.flash {
+  position: fixed;
+  width: inherit;
+}

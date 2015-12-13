@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
-  before_action :correct_user, only: :destroy
+
 
   def create
     @item = Item.new(item_params)
@@ -11,33 +11,31 @@ class ItemsController < ApplicationController
     else
       flash[:error] = "Error creating Item. Please try again."
     end
-    redirect_to :back
+    redirect_to current_user
   end
 
   def destroy
     @item = Item.find(params[:id])
 
-    if @item.destroy
+    # prevent users from deleting other users tasks
+    if current_user != @item.user
+      flash[:error] = "You do not have the authority to do that task"
+    elsif @item.destroy
       flash[:notice] = "Congratulations on completing the task!"
     else
       flash[:error] = "Something seems to have gone wrong. Please try again."
     end
 
-    redirect_to :back
+    redirect_to current_user
   end
 
 
   private
 
-    def item_params
-      params.require(:item).permit(:name)
-    end
+  def item_params
+    params.require(:item).permit(:name)
+  end
 
-    def correct_user
-      @item = current_user.items.find_by(id: params[:id])
-      redirect_to :back if @item.nil?
-      flash[:error] = "You do not have the authority to do that task"
-    end
 
 
 

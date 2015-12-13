@@ -2,7 +2,7 @@
   <tr>
     <%= form_for [@user, Item.new] do |f| %>
       <td><%= f.text_field :name, class: 'form-control', placeholder: "New Item" %></td>
-      <td><%= f.submit "Save", class: "btn btn-success" %></td>
+      <td><%= f.submit "Save", class: "btn btn-primary" %></td>
     <% end %>
   </tr>
 <% end %>
