@@ -57,4 +57,5 @@ $table-cell-padding: 10px;
 .flash {
   position: fixed;
   width: inherit;
+  z-index: 9999;
 }
