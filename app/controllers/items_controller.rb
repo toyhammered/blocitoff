@@ -29,6 +29,21 @@ class ItemsController < ApplicationController
     redirect_to current_user
   end
 
+  def update
+    @item = Item.find(params[:id])
+
+    if current_user != @item.user
+      flash[:error] = "You do not have the authority to do that task"
+    elsif @item.save
+      @item.update_attributes(completed_at: Time.now)
+      flash[:notice] = "Congratulations on completing the task!"
+    else
+      flash[:error] = "Something seems to have gone wrong. Please try again."
+    end
+    redirect_to current_user
+
+  end
+
 
   private
 

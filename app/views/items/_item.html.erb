@@ -1,5 +1,22 @@
-<tr class="change-icon">
+
+<% if filter == "current" %>
+  <tr class="change-icon">
+    <td><%= item.name %></td>
+    <td class="text-center"> <%= time_remaining(item) %> </td>
+    <td class="text-center" style="padding:0;"><%= link_to "", user_item_path(user.id, item.id), method: :put, class: 'fa fa-2x fa-square-o' %></td>
+  </tr>
+<% elsif filter == "completed" %>
+<tr>
   <td><%= item.name %></td>
-  <td class="text-center"> <%= time_remaining(item) %> </td>
-  <td class="text-center"><%= link_to "", user_item_path(user.id, item.id), method: :delete, class: 'fa fa-2x fa-square-o' %></td>
+  <td class="text-center"> Completed </td>
+  <td class="text-center"><%= item.completed_at.strftime('%m/%d/%y') %></td>
 </tr>
+
+<% else %>
+<tr>
+  <td><%= item.name %></td>
+  <td class="text-center"><%= time_remaining(item) %> over</td>
+  <td class="text-center">Try Again</td>
+</tr>
+
+<% end %>

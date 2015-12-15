@@ -19,12 +19,35 @@ end
 end
 users = User.all
 
+# current tasks
 40.times do
   item = Item.create!(
     name: Faker::Lorem.sentence(3),
     user: users.sample
   )
   item.update_attributes(created_at: Faker::Time.backward(7, :all))
+  item.update_attributes(completed_at: nil)
+end
+
+# completed tasks
+40.times do
+  item = Item.create!(
+    name: Faker::Lorem.sentence(3),
+    user: users.sample
+  )
+  item.update_attributes(created_at: Faker::Time.backward(7, :all))
+  item.update_attributes(completed_at: Time.now)
+
+end
+
+# expired tasks
+40.times do
+  item = Item.create!(
+    name: Faker::Lorem.sentence(3),
+    user: users.sample
+  )
+  item.update_attributes(created_at: Faker::Time.between(8.days.ago, 14.days.ago, :all))
+  item.update_attributes(completed_at: nil)
 end
 
 puts "Seeding Finished."

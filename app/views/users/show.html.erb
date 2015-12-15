@@ -1,4 +1,9 @@
-<h2 class="text-center">My Todos</h2>
+<h2 class="text-center" style="color: white;">My Todos</h2>
+<div class="btn-group" role="group">
+  <%= link_to "Current", user_path(filter: 'current'), class: "btn btn-default #{'active' if params[:filter] == 'current'}" %>
+  <%= link_to "Completed", user_path(filter: 'completed'), class: "btn btn-default #{'active' if params[:filter] == 'completed'}" %>
+  <%= link_to "Expired", user_path(filter: 'expired'), class: "btn btn-default #{'active' if params[:filter] == 'expired'}" %>
+</div>
 <div class="container">
   <div class="row">
 
@@ -12,8 +17,8 @@
       </thead>
 
       <tbody>
-        <% @user.items.each do |item| %>
-        <%= render partial: 'items/item', locals: { item: item, user: @user } %>
+        <% @items.each do |item| %>
+          <%= render partial: 'items/item', locals: { item: item, user: @user, filter: params[:filter] } %>
         <% end %>
       </tbody>
 
