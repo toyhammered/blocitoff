@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
 
     if current_user != @item.user
-      flash[:error] = "You do not have the authority to do that task"
+      flash[:error] = "You do not have the authority modify that task"
     elsif @item.save
       @item.update_attributes(completed_at: Time.now)
       flash[:notice] = "Congratulations on completing the task!"
@@ -42,6 +42,18 @@ class ItemsController < ApplicationController
     end
     redirect_to current_user
 
+  end
+
+  def try_again
+    @item = Item.find(params[:item_id])
+
+    if current_user != @item.user
+      flash[:error] = "You do not have the authority to modify that task"
+    else
+      @item.update_attributes(created_at: Time.now)
+      flash[:notice] = "#{@item.name} has been moved to Current Tasks!"
+    end
+    redirect_to current_user
   end
 
 

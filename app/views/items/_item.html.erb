@@ -16,7 +16,7 @@
 <tr>
   <td><%= item.name %></td>
   <td class="text-center"><%= time_remaining(item) %> over</td>
-  <td class="text-center">Try Again</td>
+  <td class="text-center"><%= link_to "Try Again", item_try_again_path(item), method: :put %></td>
 </tr>
 
 <% end %>

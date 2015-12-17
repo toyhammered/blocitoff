@@ -1,5 +1,3 @@
-
-
 .table {
   thead {
 
@@ -21,12 +19,10 @@
 }
 
 .item-form {
-
   input.form-control {
     display: inline;
     width: 82%;
     margin-left:0.5%;
-
   }
 
 }
@@ -41,4 +37,12 @@
     text-decoration: inherit;
     color: black;
 
+}
+
+.btn-group {
+  margin-bottom: 10px;
+  a {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 }
