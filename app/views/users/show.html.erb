@@ -22,9 +22,7 @@
       </thead>
 
       <tbody>
-        <% @items.each do |item| %>
-          <%= render partial: 'items/item', locals: { item: item, user: @user, filter: params[:filter] } %>
-        <% end %>
+        <%= render partial: 'items/item', collection: @items, locals: { user: @user, filter: params[:filter] } %>
       </tbody>
 
     </table>

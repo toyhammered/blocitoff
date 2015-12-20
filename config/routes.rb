@@ -6,8 +6,4 @@ Rails.application.routes.draw do
     resources :items, only: [:create, :destroy, :update]
   end
 
-  resources :items, only: [] do
-    put '/try-again' => 'items#try_again', as: :try_again
-  end
-
 end

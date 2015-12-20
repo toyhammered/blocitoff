@@ -67,6 +67,36 @@ RSpec.describe ItemsController, type: :controller do
         expect(flash[:error]).to eq("You do not have the authority to do that task")
       end
 
+      describe "PUT update" do
+        context "with params[:attribute]" do
+          it 'updates completed_at field' do
+            my_item = create(:item, user: my_user)
+            post :update, {id: my_item.id, user_id: my_user.id, attribute: "completed_at"}
+            expect(flash[:notice]).to eq("Congratulations on completing the task!")
+          end
+
+          it 'updates created_at field' do
+            my_item = create(:item, user: my_user)
+            post :update, {id: my_item.id, user_id: my_user.id, attribute: "created_at"}
+            expect(flash[:notice]).to eq("This task has been reinstated")
+          end
+        end
+        context "without params[:attribute]" do
+          it 'it returns flash[:error]' do
+            my_item = create(:item, user: my_user)
+            post :update, {id: my_item.id, user_id: my_user.id, attribute: ""}
+            expect(flash[:error]).to eq("Something seems to have gone wrong. Please try again.")
+          end
+        end
+        context "invalid params[:attribute]" do
+          it 'it returns flash[:error]' do
+            my_item = create(:item, user: my_user)
+            post :update, {id: my_item.id, user_id: my_user.id, attribute: "fake"}
+            expect(flash[:error]).to eq("Something seems to have gone wrong. Please try again.")
+          end
+        end
+      end
+
     end
   end # end of incorrect user
 

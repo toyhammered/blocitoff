@@ -34,24 +34,12 @@ class ItemsController < ApplicationController
 
     if current_user != @item.user
       flash[:error] = "You do not have the authority modify that task"
-    elsif @item.save
-      @item.update_attributes(completed_at: Time.now)
-      flash[:notice] = "Congratulations on completing the task!"
+    elsif @item.attributes.has_key?(params[:attribute])
+      @item.update_attributes(params[:attribute] => Time.now)
+      flash[:notice] = "Congratulations on completing the task!" if params[:attribute] == "completed_at"
+      flash[:notice] = "This task has been reinstated" if params[:attribute] == "created_at"
     else
       flash[:error] = "Something seems to have gone wrong. Please try again."
-    end
-    redirect_to current_user
-
-  end
-
-  def try_again
-    @item = Item.find(params[:item_id])
-
-    if current_user != @item.user
-      flash[:error] = "You do not have the authority to modify that task"
-    else
-      @item.update_attributes(created_at: Time.now)
-      flash[:notice] = "#{@item.name} has been moved to Current Tasks!"
     end
     redirect_to current_user
   end
@@ -62,8 +50,6 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name)
   end
-
-
 
 
 end
