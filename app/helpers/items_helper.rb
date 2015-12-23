@@ -8,14 +8,12 @@ module ItemsHelper
   end
 
   def completed_status(item, user, filter)
-    if filter == 'current'
-      link_to "", user_item_path(user, item, attribute: :completed_at), method: :put, class: 'fa fa-2x fa-square-o'
-    elsif filter == 'completed'
+    if filter == 'completed'
       item.completed_at.strftime('%m/%d/%y')
     elsif filter == 'expired'
       link_to "Try Again", user_item_path(user, item, attribute: :created_at ), method: :put
     else
-      "Something went wrong"
+      link_to "", user_item_path(user, item, attribute: :completed_at), method: :put, class: 'fa fa-2x fa-square-o'
     end
   end
 
