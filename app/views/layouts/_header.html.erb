@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to "Blocitoff", '/', class: 'navbar-brand' %>
+      <%= link_to "Blocitoff", root_path, class: 'navbar-brand' %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -17,7 +17,7 @@
 
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-        <li><%= link_to "Tasks", user_path(current_user), class: 'navbar-link' %></li>
+        <li><%= link_to "Tasks", root_path, class: 'navbar-link' %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong><%= current_user.email %></strong><span class="caret"></span></a>
             <ul class="dropdown-menu">
