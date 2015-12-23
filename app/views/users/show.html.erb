@@ -5,7 +5,7 @@
     <div class="text-center">
       <h2 style="color: white;">My Tasks</h2>
       <div class="btn-group" role="group">
-        <%= link_to "Current", user_path(filter: 'current'), class: "btn btn-default #{'active' if params[:filter] == 'current'}" %>
+        <%= link_to "Current", user_path, class: "btn btn-default #{'active' if params[:filter] == 'current'}" %>
         <%= link_to "Completed", user_path(filter: 'completed'), class: "btn btn-default #{'active' if params[:filter] == 'completed'}" %>
         <%= link_to "Expired", user_path(filter: 'expired'), class: "btn btn-default #{'active' if params[:filter] == 'expired'}" %>
       </div>

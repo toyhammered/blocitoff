@@ -4,17 +4,13 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    params[:filter] ||= "current"
 
-    if params[:filter]
-      if params[:filter] == "current"
-        @items = @user.items.current
-      elsif params[:filter] == "completed"
-        @items = @user.items.completed
-      else
-        @items = @user.items.expired
-      end
+    if params[:filter] && params[:filter] == "completed"
+      @items = @user.items.completed
+    elsif params[:filter] && params[:filter] == "expired"
+      @items = @user.items.expired
+    else
+      @items = @user.items.current
     end
-
   end
 end
