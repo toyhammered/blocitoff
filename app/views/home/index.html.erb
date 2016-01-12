@@ -1,10 +1,42 @@
-<div class="jumbotron text-center">
-  <div class="container">
-    <h1>Blocitoff</h1>
-    <p>A self destructive to do list!</p>
-    <p>
-      <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
-      <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-primary btn-lg' %>
-    </p>
+<%= stylesheet_link_tag "home_index/animate.css" %>
+<%= stylesheet_link_tag "home_index/owl.carousel.min.css" %>
+<%= stylesheet_link_tag "home_index/owl.theme.default.min.css" %>
+<%= stylesheet_link_tag "home_index/magnific-popup.css" %>
+
+<script>
+$(window).on('unload', function() {
+  $(window).scrollTop(0);
+});
+</script>
+
+
+<div class="js">
+
+  <div id="slider" data-section="home">
+    <%= render partial: 'home' %>
   </div>
-</div>
+
+  <div id="fh5co-about-us" data-section="about">
+    <%= render partial: 'about' %>
+  </div>
+
+  <div id="fh5co-our-services" data-section="services">
+    <%= render partial: 'features' %>
+  </div>
+
+  <div id="fh5co-pricing" data-section="pricing">
+    <%= render partial: 'price' %>
+  </div>
+
+  <div id="fh5co-press" data-section="press" style="background: #89BDD3;">
+    <%= render partial: 'signup' %>
+  </div>
+
+
+
+</div> <!-- end of js class -->
+
+<%= javascript_include_tag "home_index/jquery.easing.1.3.js" %>
+<%= javascript_include_tag "home_index/jquery.waypoints.min.js" %>
+<%= javascript_include_tag "home_index/owl.carousel.min.js" %>
+<%= javascript_include_tag "home_index/main.js" %>

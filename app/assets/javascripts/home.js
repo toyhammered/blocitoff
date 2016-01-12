@@ -1,7 +1,8 @@
 $(document).on('page:change', function() {
   $(function() {
     setTimeout(function() {
-      $('.alert').slideUp(300);
-    }, 2500);
+      $('.alert').fadeOut(300);
+    }, 2000);
   });
+
 });
