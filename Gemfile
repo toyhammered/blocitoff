@@ -29,7 +29,6 @@ end
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
 gem 'devise'
-gem 'devise-bootstrap-views'
 gem 'figaro'
 gem 'font-awesome-rails'
 
