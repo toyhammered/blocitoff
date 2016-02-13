@@ -1,5 +1,6 @@
 1.times do
   user = User.create!(
+    username: "toyhammered",
     email: "daniel@rassiner.com",
     password: "fakefake",
     password_confirmation: "fakefake",
@@ -10,6 +11,7 @@ end
 
 5.times do
   user = User.create!(
+    username: Faker::Internet.user_name,
     email: Faker::Internet.safe_email,
     password: "fakefake",
     password_confirmation: "fakefake",
