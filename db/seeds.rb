@@ -22,7 +22,7 @@ end
 users = User.all
 
 # current tasks
-500.times do
+20.times do
   item = Item.create!(
     name: Faker::Lorem.sentence(3),
     user: users.sample
@@ -32,7 +32,7 @@ users = User.all
 end
 
 # completed tasks
-40.times do
+20.times do
   item = Item.create!(
     name: Faker::Lorem.sentence(3),
     user: users.sample
@@ -43,7 +43,7 @@ end
 end
 
 # expired tasks
-40.times do
+20.times do
   item = Item.create!(
     name: Faker::Lorem.sentence(3),
     user: users.sample
