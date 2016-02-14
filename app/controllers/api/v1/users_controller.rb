@@ -3,7 +3,12 @@ class Api::V1::UsersController < Api::V1::ApiController
 
   def show
     user = User.find(params[:id])
-    render json: user, each_serializer: Api::V1::UserSerializer
+
+    if permissions?(user)
+      render json: user, each_serializer: Api::V1::UserSerializer
+    else
+      render json: { errors: "You do not have permission to view that user" }, status: 400
+    end
   end
 
 

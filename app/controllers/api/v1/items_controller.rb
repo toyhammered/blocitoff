@@ -1,10 +1,14 @@
 class Api::V1::ItemsController < Api::V1::ApiController
   before_action :authenticated?
 
-  def index
-    items = Item.where(user_id: current_user)
-
-    render json: items, each_serializer: Api::V1::ItemSerializer
+  def update
+    item = Item.find(params[:id])
+    user = item.user_id
+    if permissions?(user)
+      # need to update items completed_at to Time.now
+    else
+      render json: { errors: item.errors.full_messages }, status: :unprocessable_entity
+    end
   end
 
   def create

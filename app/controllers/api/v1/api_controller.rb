@@ -3,19 +3,6 @@ class Api::V1::ApiController < ActionController::Base
 
   private
 
-  def permission_denied_error
-    error(403, 'Permission Denied!')
-  end
-
-  def error(status, message = 'Something went wrong')
-    response = {
-      response_type: "ERROR",
-      message: message
-    }
-
-    render json: response.to_json, status: status
-  end
-
   def authenticated?
     authenticate_or_request_with_http_basic do |username, password|
       resource = User.find_by(username: username)
@@ -23,6 +10,10 @@ class Api::V1::ApiController < ActionController::Base
         sign_in :user, resource
       end
     end
+  end
+
+  def permissions?(user)
+    current_user == user
   end
 
 end
